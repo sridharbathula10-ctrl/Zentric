@@ -1,0 +1,1 @@
+import {prisma} from "../../../../../lib/prisma";import {requireAdmin} from "../../../../../lib/auth";import {ok,safe} from "../../../../../lib/http";export async function GET(){return safe(async()=>{await requireAdmin();return ok({technicians:await prisma.user.findMany({where:{role:"ADMIN",status:"ACTIVE"},select:{id:true,name:true,email:true},orderBy:{name:"asc"}})})})}

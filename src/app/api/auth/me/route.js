@@ -1,0 +1,1 @@
+import {getCurrentUser} from "../../../../../lib/auth";import {ok,fail,safe} from "../../../../../lib/http";export async function GET(){return safe(async()=>{const user=await getCurrentUser();return user?ok({user}):fail("Authentication required",401)})}

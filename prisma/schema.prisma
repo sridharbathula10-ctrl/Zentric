@@ -1,0 +1,84 @@
+generator client {
+ provider = "prisma-client-js"
+}
+datasource db {
+ provider = "mysql"
+ url = env("DATABASE_URL")
+}
+model User {
+ id Int @id @default(autoincrement())
+ name String
+ email String @unique
+ mobile String?
+ password String
+ role Role @default(CUSTOMER)
+ status UserStatus @default(ACTIVE)
+ tickets Ticket[] @relation("CustomerTickets")
+ assignedTickets Ticket[] @relation("AssignedTickets")
+ comments TicketComment[]
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@index([role, status])
+}
+model Ticket {
+ id Int @id @default(autoincrement())
+ ticketNumber String @unique
+ customerId Int
+ subject String
+ description String
+ category Category
+ priority Priority @default(MEDIUM)
+ status TicketStatus @default(OPEN)
+ assignedToId Int?
+ customer User @relation("CustomerTickets", fields: [customerId], references: [id])
+ assignedTo User? @relation("AssignedTickets", fields: [assignedToId], references: [id])
+ comments TicketComment[]
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@index([customerId])
+ @@index([status])
+ @@index([priority])
+ @@index([assignedToId])
+ @@index([createdAt])
+}
+model TicketComment {
+ id Int @id @default(autoincrement())
+ ticketId Int
+ userId Int
+ message String
+ ticket Ticket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+ user User @relation(fields: [userId], references: [id])
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+ @@index([ticketId])
+}
+enum Role {
+ CUSTOMER
+ ADMIN
+}
+enum UserStatus {
+ ACTIVE
+ INACTIVE
+}
+enum Category {
+ TECHNICAL
+ BILLING
+ ACCOUNT
+ PRODUCT
+ GENERAL
+ OTHER
+}
+enum Priority {
+ LOW
+ MEDIUM
+ HIGH
+ CRITICAL
+}
+enum TicketStatus {
+ OPEN
+ ASSIGNED
+ IN_PROGRESS
+ PENDING
+ RESOLVED
+ CLOSED
+}
