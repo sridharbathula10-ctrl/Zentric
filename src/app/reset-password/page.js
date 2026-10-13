@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
-export default function ResetPasswordPage() {
+function ResetPasswordForm() {
   const searchParams = useSearchParams();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -32,5 +32,13 @@ export default function ResetPasswordPage() {
         <button className="button" style={{ width: "100%", justifyContent: "center", marginTop: 10 }}>Reset password</button>
       </form>
     </main>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={<main className="auth"><div className="auth-card">Loading password reset…</div></main>}>
+      <ResetPasswordForm />
+    </Suspense>
   );
 }
