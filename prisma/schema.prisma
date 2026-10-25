@@ -19,6 +19,7 @@ model User {
  createdAt DateTime @default(now())
  updatedAt DateTime @updatedAt
  @@index([role, status])
+ @@map("user")
 }
 model Ticket {
  id Int @id @default(autoincrement())
@@ -40,6 +41,7 @@ model Ticket {
  @@index([priority])
  @@index([assignedToId])
  @@index([createdAt])
+ @@map("ticket")
 }
 model TicketComment {
  id Int @id @default(autoincrement())
@@ -51,6 +53,7 @@ model TicketComment {
  createdAt DateTime @default(now())
  updatedAt DateTime @updatedAt
  @@index([ticketId])
+ @@map("ticketcomment")
 }
 enum Role {
  CUSTOMER
