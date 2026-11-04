@@ -1,1 +1,15 @@
-import AuthForm from "../../components/AuthForm";export default function Register(){return <AuthForm mode="register"/>}
+import Link from "next/link";
+
+export default function Register() {
+  return (
+    <main className="auth">
+      <section className="auth-card">
+        <Link href="/" className="auth-back">← Back to home</Link>
+        <Link href="/" className="brand">ZENTRIX<span>.</span></Link>
+        <h2>Customer accounts</h2>
+        <p className="muted">Customer accounts are created by an administrator. Please contact the ZENTRIX team to get access.</p>
+        <Link className="button" href="/login" style={{ marginTop: 20 }}>Sign in</Link>
+      </section>
+    </main>
+  );
+}
