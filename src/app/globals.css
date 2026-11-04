@@ -78,7 +78,7 @@
 
 /* Landing page header and typography */
 .marketing{overflow:clip;padding-top:0}
-.landing .marketing-nav{align-items:center;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid #e5eaf2;box-shadow:0 5px 24px rgba(20,47,66,.05);left:0;margin:0 calc(clamp(24px,7vw,112px)*-1);padding:15px clamp(24px,7vw,112px);position:sticky;top:0;width:auto;z-index:2147483647}
+.landing .marketing-nav{align-items:center;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid #e5eaf2;box-shadow:0 5px 24px rgba(20,47,66,.05);left:0;margin:0 0 0 calc(clamp(24px,7vw,112px)*-1);padding:15px clamp(24px,7vw,112px);position:sticky;top:0;width:100vw;max-width:none;z-index:2147483647}
 .marketing-nav .brand{font-size:22px}.marketing-nav .brand span{color:#2563eb}
 .marketing-nav>div>a:not(.button){font-size:15px}.marketing-nav>div>a:not(.button):hover{color:#2563eb}.marketing-nav>div>a.button:hover{color:#fff}
 .marketing .button{background:linear-gradient(135deg,#3b82f6,#2563eb);box-shadow:0 8px 18px rgba(37,99,235,.24)}.marketing .button:hover{box-shadow:0 12px 25px rgba(37,99,235,.3)}
@@ -92,4 +92,4 @@
 .package-card.featured{border-color:#4382e9;box-shadow:0 18px 44px rgba(37,99,235,.12)}.package-link:hover{border-color:#4382e9;color:#2563eb}
 .marketing .problem-section{background:linear-gradient(120deg,#14264a,#1b3b70)}.marketing .closing-cta{background:linear-gradient(135deg,#14264a,#1d4380)}
 @media(max-width:900px){.marketing-hero{min-height:auto;padding:75px 0}.section-heading{align-items:start;flex-direction:column;gap:12px}.section-heading>p{max-width:600px}}
-@media(max-width:650px){.landing .marketing-nav{margin:0 -20px;padding:12px 20px}.marketing-nav .brand{font-size:19px}.marketing-nav>div{gap:11px}.marketing-nav>div>a:not(.button){display:none}.marketing-hero{display:block;padding:58px 0 60px}.marketing-copy h1{font-size:clamp(56px,15vw,72px)}.marketing-copy h2{font-size:27px}.marketing-copy .lede{font-size:16px}.service-preview{margin:42px auto 0;max-width:440px;transform:none}.section-heading h2,.problem-intro h2,.closing-cta h2{font-size:36px}.service-card h3,.platform-card h3,.role-card h3{font-size:18px}.service-card p,.platform-card p,.role-card p,.roadmap-grid p{font-size:13px}}
+@media(max-width:650px){.landing .marketing-nav{margin:0 0 0 -20px;padding:12px 20px;width:100vw}.marketing-nav .brand{font-size:19px}.marketing-nav>div{gap:11px}.marketing-nav>div>a:not(.button){display:none}.marketing-hero{display:block;padding:58px 0 60px}.marketing-copy h1{font-size:clamp(56px,15vw,72px)}.marketing-copy h2{font-size:27px}.marketing-copy .lede{font-size:16px}.service-preview{margin:42px auto 0;max-width:440px;transform:none}.section-heading h2,.problem-intro h2,.closing-cta h2{font-size:36px}.service-card h3,.platform-card h3,.role-card h3{font-size:18px}.service-card p,.platform-card p,.role-card p,.roadmap-grid p{font-size:13px}}
