@@ -15,12 +15,15 @@ All responses use `{ "success": true, "message": "…", "data": {} }`; failures 
 | GET | `/api/tickets/:id` | Owner/Admin | Ticket and conversation. |
 | POST | `/api/tickets/:id/comments` | Owner | Add a message. |
 | GET | `/api/admin/dashboard` | Admin | Global dashboard data. |
-| GET | `/api/admin/tickets` | Admin | List every ticket. |
+| POST, GET | `/api/admin/tickets` | Admin | Create a ticket with `customerId`, `subject`, `description`, `category`, and `priority`, or list every ticket. |
 | GET, PUT | `/api/admin/tickets/:id` | Admin | Read/update status, priority, assignee. |
 | POST | `/api/admin/tickets/:id/comments` | Admin | Reply to a ticket. |
 | GET | `/api/admin/technicians` | Admin | Active admins for assignment. |
 | GET | `/api/admin/customers` | Admin | Customer list and ticket totals. |
 | GET, POST | `/api/admin/companies` | Admin | List companies or create one with `name`; customer creation uses `companyId`. |
+| PUT, DELETE | `/api/admin/companies/:id` | Admin | Rename a company or delete it when no customers are assigned. |
+| GET | `/api/admin/contacts` | Admin | List public contact form submissions; accepts `page` and `limit`. |
+| GET | `/api/admin/contacts/:id` | Admin | Read one contact form submission. |
 | GET | `/api/admin/customers/:id` | Admin | Customer and ticket history. |
 
 List endpoints accept `page`, `limit`, `search`, `status`, `priority`, and `category`; admin tickets additionally accepts `customer` and `assignedTo`.
