@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContactForm from "../components/ContactForm";
 
 const services = [
   ["W", "Website Development", "Responsive, modern websites designed around your brand, customer journey and business goals.", ["Corporate & service websites", "Landing pages & portals", "Responsive UX", "Enhancements & integrations"]],
@@ -41,7 +42,8 @@ export default function Home() {
       <section className="roadmap-section"><div className="section-heading"><div><p className="eyebrow">Future roadmap</p><h2>Grow from support portal into digital service management.</h2></div></div><div className="roadmap-grid">{[["PHASE 1","Portal + Ticketing","Customer accounts, ticketing and admin operations."],["PHASE 2","Hosting + Billing","Domain, hosting, subscriptions and SLA management."],["PHASE 3","AI + Automation","AI ticket classification, chatbot and automated notifications."],["PHASE 4","Monitoring","Uptime, performance and automated backup capabilities."],["PHASE 5","Mobile + Analytics","Customer mobile experience and advanced service insights."]].map(([phase,title,desc])=><article key={phase}><span>{phase}</span><h3>{title}</h3><p>{desc}</p></article>)}</div></section>
 
       <section className="metrics-row"><div><b>1</b><span>Customer service portal</span></div><div><b>360°</b><span>Customer relationship view</span></div><div><b>24/7</b><span>Digital request visibility</span></div><div><b>∞</b><span>Potential for recurring services</span></div></section>
-      <section className="closing-cta"><p className="eyebrow">Let’s build the service model</p><h2>Ready to make every customer feel heard?</h2><p>Talk to ZENTRIX about website development, enhancements, hosting, maintenance, technical support or a managed service package.</p><Link className="button" href="/register">Contact ZENTRIX <span>→</span></Link></section>
+      <section className="closing-cta"><p className="eyebrow">Let’s build the service model</p><h2>Ready to make every customer feel heard?</h2><p>Talk to ZENTRIX about website development, enhancements, hosting, maintenance, technical support or a managed service package.</p><a className="button" href="#contact">Contact ZENTRIX <span>→</span></a></section>
+      <ContactForm />
       <footer className="marketing-footer"><Link href="/" className="brand">ZENTRIX<span>.</span></Link><div><b>Digital services & customer support platform.</b><span>Website Development · Hosting · Maintenance · Support · Enhancements</span></div><div className="footer-links"><Link href="/login">Sign in</Link><Link href="/register">Create account</Link></div></footer>
     </main>
   );

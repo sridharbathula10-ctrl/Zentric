@@ -11,6 +11,8 @@ model User {
  email String @unique
  mobile String?
  password String
+ companyId Int?
+ company Company? @relation(fields: [companyId], references: [id])
  role Role @default(CUSTOMER)
  status UserStatus @default(ACTIVE)
  tickets Ticket[] @relation("CustomerTickets")
@@ -19,7 +21,15 @@ model User {
  createdAt DateTime @default(now())
  updatedAt DateTime @updatedAt
  @@index([role, status])
+ @@index([companyId])
  @@map("user")
+}
+model Company {
+ id Int @id @default(autoincrement())
+ name String @unique @db.VarChar(150)
+ customers User[]
+ createdAt DateTime @default(now())
+ @@map("company")
 }
 model Ticket {
  id Int @id @default(autoincrement())
@@ -54,6 +64,17 @@ model TicketComment {
  updatedAt DateTime @updatedAt
  @@index([ticketId])
  @@map("ticketcomment")
+}
+model ContactSubmission {
+ id Int @id @default(autoincrement())
+ name String @db.VarChar(120)
+ email String @db.VarChar(254)
+ mobile String? @db.VarChar(32)
+ category Category @default(GENERAL)
+ message String @db.Text
+ createdAt DateTime @default(now())
+ @@index([createdAt])
+ @@map("contactsubmission")
 }
 enum Role {
  CUSTOMER

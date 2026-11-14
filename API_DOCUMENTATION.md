@@ -5,6 +5,7 @@ All responses use `{ "success": true, "message": "…", "data": {} }`; failures 
 | Method | Endpoint | Role | Purpose |
 |---|---|---|---|
 | POST | `/api/auth/register` | Public | Create a customer: `name`, `email`, `mobile`, `password`. |
+| POST | `/api/contact` | Public | Save a contact form submission: `name`, `email`, optional `mobile`, `category`, and `message`. |
 | POST | `/api/auth/login` | Public | Sign in and set the auth cookie. |
 | POST | `/api/auth/logout` | Signed in | Clear the auth cookie. |
 | GET | `/api/auth/me` | Signed in | Get the current safe user profile. |
@@ -19,6 +20,7 @@ All responses use `{ "success": true, "message": "…", "data": {} }`; failures 
 | POST | `/api/admin/tickets/:id/comments` | Admin | Reply to a ticket. |
 | GET | `/api/admin/technicians` | Admin | Active admins for assignment. |
 | GET | `/api/admin/customers` | Admin | Customer list and ticket totals. |
+| GET, POST | `/api/admin/companies` | Admin | List companies or create one with `name`; customer creation uses `companyId`. |
 | GET | `/api/admin/customers/:id` | Admin | Customer and ticket history. |
 
 List endpoints accept `page`, `limit`, `search`, `status`, `priority`, and `category`; admin tickets additionally accepts `customer` and `assignedTo`.
