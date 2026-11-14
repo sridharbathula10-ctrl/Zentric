@@ -8,7 +8,7 @@ export default function Register() {
         <Link href="/" className="brand">ZENTRIX<span>.</span></Link>
         <h2>Customer accounts</h2>
         <p className="muted">Customer accounts are created by an administrator. Please contact the ZENTRIX team to get access.</p>
-        <Link className="button" href="/login" style={{ marginTop: 20 }}>Sign in</Link>
+        <Link className="button" href="/#contact" style={{ marginTop: 20 }}>Contact us</Link>
       </section>
     </main>
   );

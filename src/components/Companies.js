@@ -91,9 +91,9 @@ export default function Companies() {
       <h3>Companies</h3>
       <div className="table-wrap"><table><thead><tr><th>Company</th><th>Added</th><th>Actions</th></tr></thead><tbody>
         {companies.length ? companies.map((company) => <tr key={company.id}>
-          <td>{editingId === company.id ? <form id={`edit-company-${company.id}`} onSubmit={saveEdit}><input aria-label="Company name" required maxLength={150} value={editName} onChange={(event) => setEditName(event.target.value)} /></form> : company.name}</td>
+          <td>{editingId === company.id ? <form id={`edit-company-${company.id}`} onSubmit={saveEdit}><input className="company-name-edit" aria-label="Company name" required maxLength={150} value={editName} onChange={(event) => setEditName(event.target.value)} autoFocus /></form> : company.name}</td>
           <td>{new Date(company.createdAt).toLocaleDateString()}</td>
-          <td>{editingId === company.id ? <><button className="text-link" type="submit" form={`edit-company-${company.id}`} disabled={saving}>Save</button> <button className="text-link" type="button" onClick={() => setEditingId(null)} disabled={saving}>Cancel</button></> : <><button className="text-link" type="button" onClick={() => startEditing(company)} disabled={saving}>Edit</button> <button className="text-link" type="button" onClick={() => removeCompany(company)} disabled={saving}>Delete</button></>}</td>
+          <td><div className="company-actions">{editingId === company.id ? <><button className="company-action save" type="submit" form={`edit-company-${company.id}`} disabled={saving}>Save</button><button className="company-action" type="button" onClick={() => setEditingId(null)} disabled={saving}>Cancel</button></> : <><button className="company-action edit" type="button" onClick={() => startEditing(company)} disabled={saving}>Edit</button><button className="company-action delete" type="button" onClick={() => removeCompany(company)} disabled={saving}>Delete</button></>}</div></td>
         </tr>) : <tr><td colSpan="3" className="muted">No companies yet.</td></tr>}
       </tbody></table></div>
     </section>
