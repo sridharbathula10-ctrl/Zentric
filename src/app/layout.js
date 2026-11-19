@@ -1,5 +1,5 @@
 import "./globals.css";
-export const metadata = { title: "ZENTRIX | Digital Services & Website Support", description: "Website development, hosting, maintenance and technical support, managed through one customer service portal." };
+export const metadata = { title: "ZENTRIX | Digital Solutions, Website Design & Development", description: "ZENTRIX helps businesses build and improve websites, online stores, custom applications and digital experiences, with ongoing technology support." };
 
 export default function RootLayout({ children }) {
   return (

@@ -36,7 +36,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="contact-section" id="contact">
+    <section className="contact-section theme-dark" id="contact">
       <div className="contact-copy">
         <p className="eyebrow">Contact us</p>
         <h2>Tell us what you need.</h2>
