@@ -1,5 +1,6 @@
 import { createContactSubmission } from "../../../../lib/prisma";
 import { fail, ok, safe } from "../../../../lib/http";
+import { notifyAdmin } from "../../../../lib/email";
 
 const categories = ["TECHNICAL", "BILLING", "ACCOUNT", "PRODUCT", "GENERAL", "OTHER"];
 
@@ -25,6 +26,11 @@ export async function POST(request) {
     }
 
     const submission = await createContactSubmission({ name, email, mobile, category, message });
+    await notifyAdmin(
+      `New ${category.toLowerCase()} contact request from ${name}`,
+      [`Name: ${name}`, `Email: ${email}`, `Phone: ${mobile || "Not provided"}`, `Category: ${category}`, "", message].join("\n"),
+      email,
+    );
     return ok({ id: submission.id }, "Thanks for contacting us. We’ll be in touch soon.", 201);
   });
 }
