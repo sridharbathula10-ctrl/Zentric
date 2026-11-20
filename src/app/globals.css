@@ -311,3 +311,26 @@ th{color:#776b80}td{border-color:#eee8f2}tbody tr:hover{background:#faf7fc}.pagi
 @keyframes section-wipe{from{clip-path:inset(0 0 100% 0);opacity:.45}to{clip-path:inset(0 0 0 0);opacity:1}}
 @media(prefers-reduced-motion:reduce){.premium-home .scroll-reveal.is-visible{animation:none!important;clip-path:none!important;opacity:1!important;transform:none!important}}
 @media(max-width:650px){.premium-home .marketing-nav>div>a[href="/login"]{display:inline-flex!important;color:#292a2d;font-size:11px;white-space:nowrap}}
+
+/* Keep portal pages inside the viewport on phones. */
+@media(max-width:760px){
+  .app-shell{max-width:100%;overflow-x:clip}
+  .sidebar{max-width:100%;overflow:hidden;padding:16px}
+  .sidebar .brand{margin:0 0 12px}
+  .sidebar nav{display:flex;flex-wrap:wrap;gap:6px;overflow:visible;padding:0}
+  .sidebar a,.sidebar button{flex:0 1 auto;font-size:12px;padding:8px 10px;white-space:normal}
+  .sidebar button{margin:0}
+  .main{margin:0;min-width:0;padding:20px 14px 32px;width:100%}
+  .main> :not(.topbar){min-width:0}
+  .topbar{gap:12px;min-width:0}
+  .topbar h2{font-size:clamp(19px,5vw,23px)}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{min-width:0;padding:14px}
+  .table-wrap{max-width:100%;overscroll-behavior-x:contain}
+}
+@media(max-width:380px){
+  .main{padding-left:12px;padding-right:12px}
+  .panel{padding:13px}
+  .card{padding:12px}
+  .sidebar a,.sidebar button{font-size:11px;padding:7px 8px}
+}
