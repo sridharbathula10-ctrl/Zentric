@@ -75,6 +75,7 @@ export default function Home() {
         </aside>
         <div className="hero-scroll"><span/> SCROLL TO EXPLORE</div>
       </section>
+      
 
       <ScrollReveal as="section" className="intro-band theme-dark" variant="fade"><span className="intro-label">A more considered<br/>way to move forward</span><p>Technology should make business simpler — not add another layer of complexity. We work with you to understand what you are trying to achieve and build a digital solution around it.</p><span className="intro-index">Z / 2026</span></ScrollReveal>
 
