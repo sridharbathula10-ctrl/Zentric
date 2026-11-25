@@ -26,11 +26,11 @@ export async function POST(request) {
     }
 
     const submission = await createContactSubmission({ name, email, mobile, category, message });
-    await notifyAdmin(
+    const emailSent = await notifyAdmin(
       `New ${category.toLowerCase()} contact request from ${name}`,
       [`Name: ${name}`, `Email: ${email}`, `Phone: ${mobile || "Not provided"}`, `Category: ${category}`, "", message].join("\n"),
       email,
     );
-    return ok({ id: submission.id }, "Thanks for contacting us. We’ll be in touch soon.", 201);
+    return ok({ id: submission.id, emailSent }, emailSent ? "Contact submitted and admin email accepted by Resend." : "Contact submitted, but admin email was not sent.", 201);
   });
 }

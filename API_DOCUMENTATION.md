@@ -1,5 +1,7 @@
 # Zentrix API
 
+Email notification responses include boolean fields such as `emailSent`, `adminEmailSent`, and `customerEmailSent` under `data`. `true` means Resend accepted the email request; it does not confirm delivery to the recipient's inbox. For ticket status updates, `emailSent: null` means no status change occurred, so no email was attempted.
+
 All responses use `{ "success": true, "message": "…", "data": {} }`; failures include `success: false` and a message. Protected calls require the secure `zentrix_token` HTTP-only cookie.
 
 | Method | Endpoint | Role | Purpose |
